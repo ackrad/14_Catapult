@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Test_Script : MonoBehaviour
 {
+    HingeJoint hingeJointaccess;
+
+
 
     [SerializeField] float forceAmount = 10f;
-    HingeJoint hingeJoint;
+    [SerializeField] Slider forceSlider;
+    [SerializeField] Slider degreeSlider;
     // Start is called before the first frame update
     void Start()
     {
-        hingeJoint = GetComponent<HingeJoint>();
+        hingeJointaccess = GetComponent<HingeJoint>();
+
     }
 
     // Update is called once per frame
@@ -25,5 +31,12 @@ public class Test_Script : MonoBehaviour
         }
 
 
+        forceAmount = forceSlider.value;
+
     }
+
+
+
 }
+
+

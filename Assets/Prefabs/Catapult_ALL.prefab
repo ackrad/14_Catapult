@@ -322,7 +322,7 @@ HingeJoint:
     spring: 0
     damper: 0
     targetPosition: 0
-  m_UseMotor: 0
+  m_UseMotor: 1
   m_Motor:
     targetVelocity: 0
     force: 0
@@ -353,6 +353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceAmount: 5000
+  forceSlider: {fileID: 0}
+  degreeSlider: {fileID: 0}
 --- !u!1 &471093460257303367
 GameObject:
   m_ObjectHideFlags: 0
