@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Test_Script : MonoBehaviour
 {
     HingeJoint hingeJointaccess;
-
+    JointLimits limits;
 
 
     [SerializeField] float forceAmount = 10f;
@@ -16,6 +16,8 @@ public class Test_Script : MonoBehaviour
     void Start()
     {
         hingeJointaccess = GetComponent<HingeJoint>();
+
+        limits = hingeJointaccess.limits;
 
     }
 
@@ -33,9 +35,15 @@ public class Test_Script : MonoBehaviour
 
         forceAmount = forceSlider.value;
 
+        limits.min = 0;
+        limits.bounciness = 0;
+        limits.bounceMinVelocity = 0;
+        limits.max = degreeSlider.value;
+        hingeJointaccess.limits = limits;
+        hingeJointaccess.useLimits = true;
     }
 
-
+    
 
 }
 
