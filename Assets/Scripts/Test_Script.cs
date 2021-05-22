@@ -24,7 +24,7 @@ public class Test_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             Debug.Log("xd");
             GetComponent<Rigidbody>().AddForce(transform.up * forceAmount);
