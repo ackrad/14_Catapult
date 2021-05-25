@@ -6,6 +6,8 @@ public class RaycastShooter : MonoBehaviour
 {
 
     [SerializeField] Transform goalKeeper;
+    [SerializeField] float jumpForce = 14f;
+    [SerializeField] float jumptime = 2f;
     // Start is called before the first frame update
     private void FixedUpdate()
     {
@@ -21,12 +23,35 @@ public class RaycastShooter : MonoBehaviour
             Debug.Log("Did Hit");
 
 
-            goalKeeper.position = hit.point - new Vector3(0f,14f,0f);
+            goalKeeper.position = new Vector3(goalKeeper.position.x, goalKeeper.position.y, hit.point.z);
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
             Debug.Log("Did not Hit");
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
     }
+
+
+    public void Jump()
+    {
+        var rb = goalKeeper.GetComponent<Rigidbody>();
+        goalKeeper.GetComponent<demoMan>().StartCollisionDetection();
+        rb.isKinematic = false;
+        rb.AddForce(Vector3.up * jumpForce,ForceMode.VelocityChange);
+
+
+
+
+    }
+
+
+
+
 }

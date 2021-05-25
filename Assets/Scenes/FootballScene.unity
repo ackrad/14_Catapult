@@ -285,11 +285,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1030481655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7447163605589988728, guid: 907fd825e3988774caab4234b943bf44, type: 3}
+  m_PrefabInstance: {fileID: 932089263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1030481656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030481655}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.6400036, z: 1}
+  m_Center: {x: 0, y: 0.78933656, z: 0}
 --- !u!4 &1030481657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7447163605590411544, guid: 907fd825e3988774caab4234b943bf44, type: 3}
   m_PrefabInstance: {fileID: 932089263}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &1030481658
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030481655}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1030481660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030481655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca30c548b8fcd24c85fce65444d4869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1353183961 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5852860216686832309, guid: 19a3e784e7e0b544baf1a95626f153b0, type: 3}
@@ -308,6 +354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalKeeper: {fileID: 1030481657}
+  jumpForce: 15
+  jumptime: 2
 --- !u!1 &1937764945
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +381,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937764945}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 41.2, z: 284.75}
@@ -445,6 +493,10 @@ PrefabInstance:
     - target: {fileID: 2521297268297572247, guid: d2256ce816f44d14bb3cc293165f0b84, type: 3}
       propertyPath: m_Name
       value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521297268297572247, guid: d2256ce816f44d14bb3cc293165f0b84, type: 3}
+      propertyPath: m_TagString
+      value: Respawn
       objectReference: {fileID: 0}
     - target: {fileID: 2521297268297572267, guid: d2256ce816f44d14bb3cc293165f0b84, type: 3}
       propertyPath: m_RootOrder
