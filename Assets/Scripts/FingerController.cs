@@ -27,33 +27,35 @@ public class FingerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            phalanx1.eulerAngles = new Vector3(0, 0, phalanx1.eulerAngles.z + spinSpeed * Time.deltaTime);
+            phalanx1.Rotate(new Vector3(0, 0, +spinSpeed * Time.deltaTime), Space.Self);
 
         }
 
         if (Input.GetKey(KeyCode.Alpha2))
         {
-            phalanx1.eulerAngles = new Vector3(0, 0, phalanx1.eulerAngles.z - spinSpeed * Time.deltaTime);
+            phalanx1.Rotate(new Vector3(0, 0, -spinSpeed * Time.deltaTime), Space.Self);
 
         }
         if (Input.GetKey(KeyCode.Alpha3))
         {
-            phalanx2.eulerAngles = new Vector3(0, 0, phalanx2.eulerAngles.z + spinSpeed * Time.deltaTime);
+            phalanx2.Rotate(new Vector3(0, 0, +spinSpeed * Time.deltaTime), Space.Self);
 
         }
         if (Input.GetKey(KeyCode.Alpha4))
         {
-            phalanx2.eulerAngles = new Vector3(0, 0, phalanx2.eulerAngles.z - spinSpeed * Time.deltaTime);
+            phalanx2.Rotate(new Vector3(0, 0, -spinSpeed * Time.deltaTime), Space.Self);
 
         }
         if (Input.GetKey(KeyCode.Alpha5))
         {
-            phalanx3.eulerAngles = new Vector3(0, 0, phalanx3.eulerAngles.z + spinSpeed * Time.deltaTime);
+            phalanx3.Rotate(new Vector3(0, 0, +spinSpeed * Time.deltaTime), Space.Self);
 
         }
         if (Input.GetKey(KeyCode.Alpha6))
         {
-            phalanx3.eulerAngles = new Vector3(0, 0, phalanx3.eulerAngles.z - spinSpeed * Time.deltaTime);
+          //  phalanx3.eulerAngles = new Vector3(0, 0, phalanx3.eulerAngles.z - spinSpeed * Time.deltaTime);
+
+            phalanx3.Rotate(new Vector3(0, 0, -spinSpeed * Time.deltaTime), Space.Self);
 
         }
 
