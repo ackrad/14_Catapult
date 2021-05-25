@@ -20,7 +20,6 @@ public class RaycastShooter : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.left) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
 
 
             goalKeeper.position = new Vector3(goalKeeper.position.x, goalKeeper.position.y, hit.point.z);
@@ -28,7 +27,6 @@ public class RaycastShooter : MonoBehaviour
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            Debug.Log("Did not Hit");
         }
 
 
@@ -42,10 +40,13 @@ public class RaycastShooter : MonoBehaviour
     public void Jump()
     {
         var rb = goalKeeper.GetComponent<Rigidbody>();
-        goalKeeper.GetComponent<demoMan>().StartCollisionDetection();
-        rb.isKinematic = false;
-        rb.AddForce(Vector3.up * jumpForce,ForceMode.VelocityChange);
 
+        if (rb.isKinematic == true)
+        {
+            goalKeeper.GetComponent<demoMan>().StartCollisionDetection();
+            rb.isKinematic = false;
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+        }
 
 
 
