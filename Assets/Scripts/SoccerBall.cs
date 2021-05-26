@@ -31,6 +31,18 @@ public class SoccerBall : MonoBehaviour
             transform.position = startingPos;
         }
 
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+
+            Time.timeScale = 0.2f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+
+            Time.timeScale = 1f;
+        }
+
 
     }
 
