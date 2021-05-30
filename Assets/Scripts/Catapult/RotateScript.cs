@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class RotateScript : MonoBehaviour
 {
     [SerializeField] Slider rotationSlider;
+    [SerializeField] 
 
     // Start is called before the first frame update
     void Start()
@@ -15,11 +16,15 @@ public class RotateScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.eulerAngles = new Vector3(
-    transform.eulerAngles.x,
-    rotationSlider.value,
-    transform.eulerAngles.z
-    );
+        if (transform.eulerAngles.y < 180)
+        {
+            rotationSlider.value = transform.eulerAngles.y;
+        }
+        else {
+            Debug.Log(transform.eulerAngles.y-360);
 
+            rotationSlider.value = transform.eulerAngles.y - 360;
+
+        }
     }
 }

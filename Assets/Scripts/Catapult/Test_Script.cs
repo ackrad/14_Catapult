@@ -9,7 +9,7 @@ public class Test_Script : MonoBehaviour
     JointLimits limits;
 
 
-    [SerializeField] float forceAmount = 10f;
+    public float forceAmount =0f;
     [SerializeField] Slider forceSlider;
     [SerializeField] Slider degreeSlider;
     // Start is called before the first frame update
@@ -24,16 +24,10 @@ public class Test_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Debug.Log("xd");
-            GetComponent<Rigidbody>().AddForce(transform.up * forceAmount);
+      
 
 
-        }
-
-
-        forceAmount = forceSlider.value;
+         forceSlider.value = forceAmount;
 
         limits.min = 0;
         limits.bounciness = 0;
@@ -43,7 +37,15 @@ public class Test_Script : MonoBehaviour
         hingeJointaccess.useLimits = true;
     }
 
-    
+    public void Fire()
+    {
+
+       
+        GetComponent<Rigidbody>().AddForce(transform.up * forceAmount);
+
+
+        
+    }
 
 }
 
