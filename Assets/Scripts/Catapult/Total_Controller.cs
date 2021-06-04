@@ -43,14 +43,14 @@ public class Total_Controller : MonoBehaviour
     {
         if(phalanx2.eulerAngles.z > 180) { ts.forceAmount = 0; return; }
 
-        ts.forceAmount = phalanx2.eulerAngles.z * forceMultiplier;
+        ts.forceAmount = (phalanx2.eulerAngles.y-180) * forceMultiplier;
     }
 
     private void SetRotation()
     {
         transform.eulerAngles = new Vector3(
         transform.eulerAngles.x,
-        phalanx3.eulerAngles.z,
+        phalanx3.eulerAngles.y-180,
         transform.eulerAngles.z);
 
 
