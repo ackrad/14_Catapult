@@ -10,6 +10,7 @@ public class Total_Controller : MonoBehaviour
     [SerializeField] Transform phalanx2;
     [SerializeField] Transform phalanx3;
     Test_Script ts;
+    [SerializeField] CatapultBall catapultBall;
 
 
 
@@ -33,7 +34,7 @@ public class Total_Controller : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
+            catapultBall.ChangeFireMode();
             ts.Fire();
         }
 

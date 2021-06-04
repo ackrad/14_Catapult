@@ -25,9 +25,12 @@ public class FingerController : MonoBehaviour
     float y_ref;
 
 
+    Quaternion currentRotation1;
+    Quaternion currentRotation2;
+
     void Start()
     {
-        sp = new SerialPort("COM7", 9600);
+        sp = new SerialPort("COM3", 9600);
         sp.Open();
         //sp.ReadTimeOut = 1;
         x_ref = 0;
@@ -79,7 +82,7 @@ public class FingerController : MonoBehaviour
         {
             try
             {
-
+                
                 //MoveObject(sp.ReadByte());
 
                 //int angle = Mathf.Clamp(sp.ReadByte()*120/256 +min_angle, min_angle, max_angle);
@@ -89,6 +92,8 @@ public class FingerController : MonoBehaviour
 
                 float th2 = int.Parse(arduinoInput.Split(',')[0]);
                 float th9 = int.Parse(arduinoInput.Split(',')[1]);
+
+                Debug.Log(th2.ToString() + "," + th9.ToString());
 
                 //if (x_ref == th2 && y_ref == th9)
                 //{
@@ -150,22 +155,33 @@ public class FingerController : MonoBehaviour
                 th4 = th4 * 180 / Mathf.PI;
                 th7 = th7 * 180 / Mathf.PI;
 
-                if ((-180.0 < th4 && th4 < 180.0) && (-180 < th7 && th7 < 180))
-                {
+                Debug.Log("Math completed");
+
+                //if ((-180.0 < th4 && th4 < 180.0) && (-180 < th7 && th7 < 180))
+               // {
 
 
 
-                    Debug.Log(th4);
                     //int angle_4 = 
                     //int angle_7 = 
 
                     phalanx2EulerAngles = new Vector3(0, 180-th7,0);
-                    phalanx2.eulerAngles = phalanx2EulerAngles;
+               
+                    currentRotation1.eulerAngles = phalanx2EulerAngles;
+                    phalanx2.rotation = currentRotation1;
+                
 
-                    phalanx3EulerAngles = new Vector3(0, 180-th4,0);
-                    phalanx3.eulerAngles = phalanx3EulerAngles;
+                
+                    //    phalanx2.eulerAngles = phalanx2EulerAngles;
 
-                }
+                    phalanx3EulerAngles = new Vector3(0, 180 - th4, 0);
+                    currentRotation2.eulerAngles = phalanx3EulerAngles;
+
+                    phalanx3.rotation = currentRotation2;
+                    //phalanx3.eulerAngles = phalanx3EulerAngles;
+                   
+                
+                
             }
 
             catch
